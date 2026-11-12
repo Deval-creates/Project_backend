@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop</title>
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+<body>
+    <div id="navbar" class="bg-slate-700 text-white p-2 flex flex-wrap gap-9 font-serif">
+        <button id="toggle-sidebar" class="hover:text-[15px]">☰</button>
+        <a href="#" class="hover:text-[15px]">Home</a>
+        <a href="./about.html" class="hover:text-[15px]">About</a>
+        <a href="./contact.html" class="hover:text-[15px]">Contact</a>
+        <a href="./login.html" class="hover:text-[15px]">Login/Register</a>
+        <a href="./cart.html" class="hover:text-[15px]">🛒 Cart (<span id="cart-count">0</span>)</a>
+    </div>
+    <div id="sh-container" class="flex min-h-screen">
+        <div id="sidebar" class="bg-slate-600 flex flex-col w-44 overflow-hidden transition-all duration-300 text-white font-serif border-t-2 border-white">            
+            <a href="./products.html?category=all" class="ml-9 mt-20 hover:text-[15px]">Products</a>
+            <a href="./products.html?category=electronics" class="ml-9 mt-20 hover:text-[15px]">Deals</a>
+            <a href="./products.html?category=jewelery" class="ml-9 mt-20 hover:text-[15px]">New Releases</a>
+        </div>
+        <div id="home_area" class="flex-1 bg-orange-50 p-5">
+        <div class="h-16">
+            <h1 class="text-slate-600 font-extrabold text-4xl font-mono text-center mt-10">
+            <span id="typed"></span>
+            </h1>  
+        </div>         
+        <div id="products" class="flex flex-wrap justify-around gap-8 mt-24">
+                <div id="product1" class="text-white rounded-3xl">
+                    <img
+                        src="https://images.pexels.com/photos/19281836/pexels-photo-19281836.jpeg"
+                        alt="Phone"
+                        class="h-80 w-60 rounded-3xl transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-400"
+                    >
+                    <span class="block text-center mt-2 font-mono hover:text-[18px]">
+                        Phones
+                    </span>
+                </div>
+                <div id="product2" class="text-white rounded-3xl">
+                    <img
+                        src="https://images.pexels.com/photos/6611936/pexels-photo-6611936.jpeg"
+                        alt="Laptop"
+                        class="h-80 w-60 rounded-3xl transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-400">
+                    <span class="block text-center mt-2 font-mono hover:text-[18px]">
+                        Laptops
+                    </span>
+                </div>
+                <div id="product3" class="text-white rounded-3xl">
+                    <img
+                        src="https://images.pexels.com/photos/35145903/pexels-photo-35145903.jpeg"
+                        alt="Jacket"
+                        class="h-80 w-60 rounded-3xl transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-400">
+                    <span class="block text-center mt-2 font-mono hover:text-[18px]">
+                        Jackets
+                    </span>
+                </div>
+                <div id="product4" class="text-white rounded-3xl">
+                    <img
+                        src="https://images.pexels.com/photos/6256271/pexels-photo-6256271.jpeg"
+                        alt="T-Shirts"
+                        class="h-80 w-60 rounded-3xl transition-transform duration-300 hover:scale-105 shadow-lg hover:shadow-emerald-400">
+                    <span class="block text-center mt-2 font-mono hover:text-[18px]">
+                        T-Shirts
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    /* sidebar hide and show */
+    const sidebar = document.getElementById('sidebar');
+    const toggleBtn = document.getElementById('toggle-sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+        const closed = sidebar.style.width === '0px';
+        sidebar.style.width = closed ? '11rem' : '0px';
+    });
+
+    /* Type welcome to E-shopping */
+    const text = 'Welcome to E-Shopping';
+    const typed = document.getElementById('typed');
+    let i = 0;
+    let deleting = false;
+
+    function type() {
+        typed.textContent = text.slice(0, i);
+
+        let delay = deleting ? 50 : 120;
+
+        if (!deleting && i === text.length) {
+            deleting = true;
+            delay = 2000;            // pause with full text showing
+        } else if (deleting && i === 0) {
+            deleting = false;
+            delay = 600;             // short pause before retyping
+        } else {
+            i += deleting ? -1 : 1;
+        }
+
+        setTimeout(type, delay);
+    }
+
+    type();
+</script>
+</body>
+</html>
