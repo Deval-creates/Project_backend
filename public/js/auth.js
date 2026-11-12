@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- SIGNUP FORM LOGIC ---
+    // SIGNUP FORM LOGIC 
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Page refresh hone se rokein
+            e.preventDefault(); 
 
             const username = document.getElementById('signupUser').value;
             const email = document.getElementById('signupEmail').value;
@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (response.ok) {
                     alert(data.message); // "User registered successfully"
-                    window.location.href = './login.html'; // Login page par bhej dein
+                    window.location.href = './login.html'; 
                 } else {
-                    alert(data.message); // Error message dikhayein
+                    alert(data.message); 
                 }
             } catch (error) {
                 alert("Something went wrong. Please try again.");
@@ -31,11 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- LOGIN FORM LOGIC ---
+    // LOGIN FORM LOGIC
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Page refresh hone se rokein
+            e.preventDefault(); 
 
             const loginId = document.getElementById('loginId').value;
             const password = document.getElementById('loginPass').value;
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Token localStorage 
                     localStorage.setItem('token', data.token);
                     alert(data.message); // "Logged in successfully"
-                    window.location.href = './index.html'; // Home page par bhej dein
+                    window.location.href = './index.html'; 
                 } else {
                     alert(data.message); // "Invalid credentials"
                 }
