@@ -21,7 +21,7 @@ function updateCartCount() {
 }
 updateCartCount();
 
-
+// fetch is used to request data from api 
 async function fetchProducts() {
     try {
         let url = 'https://fakestoreapi.com/products';
