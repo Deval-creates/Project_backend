@@ -1,3 +1,4 @@
+// dot env search for .env file and then assign the variables of that file to process.env
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');

@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
+            e.preventDefault();  
 
             const username = document.getElementById('signupUser').value;
             const email = document.getElementById('signupEmail').value;
             const password = document.getElementById('signupPass').value;
 
             try {
-                const response = await fetch('/api/auth/register', {
+                const response = await fetch('http://localhost:3000/api/auth/register', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, email, password })
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('loginPass').value;
 
             try {
-                const response = await fetch('/api/auth/login', {
+                const response = await fetch('http://localhost:3000/api/auth/login', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ loginId, password })
